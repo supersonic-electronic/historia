@@ -24,6 +24,7 @@
             padding: 60px 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .header h1 {
@@ -45,6 +46,26 @@
             margin-top: 15px;
             font-size: 0.9em;
             border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .back-home:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-3px);
         }
 
         .container {
@@ -232,11 +253,19 @@
             .toc-grid {
                 grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
             }
+            .back-home {
+                position: static;
+                display: inline-block;
+                margin-bottom: 15px;
+                font-size: 0.85em;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
+        <a href="index.html" class="back-home">← Powrót do strony głównej</a>
         <h1>🤖 Bialystok to Birkenau</h1>
         <p>Holokaust podróż Michela Mielnickiego</p>
         <div class="ai-badge">✨ Przetłumaczone automatycznie AI z języka angielskiego na polski</div>
