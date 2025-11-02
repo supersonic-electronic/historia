@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analiza historyczna pogromów w Wasilkowie i Podlasiu 1939-1941">
+    <title>Analiza Historyczna Pogromów w Wasilkowie i Podlasiu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .back-home:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-3px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content {
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 5px solid #ffc107;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .sources {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 25px 0;
+        }
+
+        .sources h3 {
+            color: #0277bd;
+        }
+
+        .sources ol {
+            counter-reset: source-counter;
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .sources li {
+            counter-increment: source-counter;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .sources li::before {
+            content: "[" counter(source-counter) "] ";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #0277bd;
+        }
+
+        .sources a {
+            color: #0277bd;
+            word-break: break-all;
+        }
+
+        .footer {
+            background: #764ba2;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            .back-home {
+                position: static;
+                display: inline-block;
+                margin-bottom: 15px;
+                font-size: 0.85em;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="back-home">← Powrót do strony głównej</a>
+        <h1>📚 Analiza Historyczna</h1>
+        <p>Pogromy w Wasilkowie i Podlasiu (1939–1941)</p>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="section">
+                <h2>Pytanie Badawcze</h2>
+                <div class="highlight-box">
+                    <p>
+                        <strong>Co wiadomo na podstawie dostępnych źródeł o rzekomych lub prawdopodobnych pogromach i aktach przemocy wobec ludności żydowskiej dokonanych przez część miejscowych Polaków w Wasilkowie na początku II wojny światowej (1939–1941)?</strong>
+                    </p>
+                    <p>
+                        Jak silne są dowody, czego brakuje w źródłach i jak należy historycznie interpretować te wydarzenia?
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>1. Zakres Źródeł o Wasilkowie</h2>
+
+                <h3>1.1. Księga pamięci Wasilkowa (Yad Vashem / JewishGen)</h3>
+                <p>
+                    Księga opisuje okupację niemiecką i sowiecką, a w kontekście września 1939 r. i lata 1941 r. wspomina o „napadach chuliganów" i „rabinowaniu żydowskich sklepów". Wspomina także o pomocy części miejscowych Polaków Niemcom podczas okupacji. <strong>Nie zawiera jednak szczegółowego opisu zorganizowanego, krwawego pogromu.</strong>
+                </p>
+                <p>
+                    <em>Źródło: JewishGen, „Wasilkow" – <a href="https://www.jewishgen.org/yizkor/wasilkow/wase007.html" target="_blank">https://www.jewishgen.org/yizkor/wasilkow/wase007.html</a></em>
+                </p>
+
+                <h3>1.2. Wspomnienia Michela (Mendla) Mielnickiego</h3>
+                <p>
+                    „Bialystok to Birkenau. The Holocaust Journey of Michel Mielnicki" (University of Calgary Press, 2000) zawiera relację o przemocy wobec Żydów w Wasilkowie oraz o widzeniu ciał i zakopywaniu ofiar. To jednak <strong>pojedyncze świadectwo, spisane około 60 lat po wydarzeniach, bez nazwisk ofiar, lokalizacji czy niezależnych potwierdzeń.</strong>
+                </p>
+                <p>
+                    <em>Źródło: M. Mielnicki, J. Munro, University of Calgary Press, 2000 – <a href="https://ronsdalepress.com/books/bialystok-to-birkenau/" target="_blank">https://ronsdalepress.com/books/bialystok-to-birkenau/</a></em>
+                </p>
+
+                <h3>1.3. Zestawienia Instytutu Pamięci Narodowej</h3>
+                <p>
+                    W zestawieniach IPN (np. seria „Wokół Jedwabnego") <strong>Wasilków nie jest wymieniany wśród miejscowości, w których potwierdzono masowe mordy na Żydach w 1941 r.</strong> Wymieniane są natomiast pobliskie miejscowości: Jedwabne, Radziłów, Wąsosz, Szczuczyn, Goniądz.
+                </p>
+                <p>
+                    <em>Źródło: IPN, „Pogromy ludności żydowskiej na Białostocczyźnie w 1941 r." – <a href="https://ipn.gov.pl" target="_blank">https://ipn.gov.pl</a></em>
+                </p>
+
+                <h3>1.4. Artykuły IPN Białystok</h3>
+                <p>
+                    Artykuły o getcie białostockim i zagładzie w powiecie odnotowują utworzenie getta w Wasilkowie latem 1941 r. i deportację jego ludności do Treblinki 2 listopada 1942 r., <strong>lecz nie opisują wcześniejszego pogromu.</strong>
+                </p>
+                <p>
+                    <em>Źródło: IPN Białystok – <a href="https://bialystok.ipn.gov.pl" target="_blank">https://bialystok.ipn.gov.pl</a></em>
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>2. Kontekst Regionalny</h2>
+                <p>
+                    W czerwcu–lipcu 1941 r., po ataku Niemiec na ZSRR, na terenie województwa białostockiego doszło do fali lokalnych pogromów. W miejscowościach takich jak <strong>Szczuczyn, Wąsosz, Radziłów i Jedwabne</strong> miejscowa ludność (często przy cichym przyzwoleniu Niemców) dokonywała zabójstw i grabieży ludności żydowskiej.
+                </p>
+                <p>
+                    Zjawisko to zostało szeroko udokumentowane w publikacjach IPN (Machcewicz, Persak, „Wokół Jedwabnego") oraz w pracach zagranicznych badaczy, m.in. Martina Deana („The Local Population's Role in the Holocaust in the Bialystok District", 1999).
+                </p>
+                <div class="warning-box">
+                    <p>
+                        <strong>W tym kontekście Wasilków</strong> – mimo braku formalnego udokumentowania pogromu – <strong>znajduje się w regionie, gdzie fala przemocy antyżydowskiej jest dobrze poświadczona.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>3. Ocena Siły Dowodów</h2>
+
+                <h3>Kategoria A – Brak źródeł niemieckich lub sądowych</h3>
+                <p>
+                    Brak źródeł niemieckich lub sądowych dotyczących pogromu w Wasilkowie. Gdyby w miejscowości doszło do masowej zbrodni, odnotowano by ją w dokumentach niemieckich lub w powojennych śledztwach.
+                </p>
+
+                <h3>Kategoria B – Księga pamięci Wasilkowa</h3>
+                <p>
+                    Potwierdza akty wrogości i rabunki, ale nie opisuje zorganizowanego mordu. Wskazuje na udział części miejscowych Polaków w działaniach wymierzonych w Żydów.
+                </p>
+
+                <h3>Kategoria C – Relacja Michela Mielnickiego</h3>
+                <p>
+                    Opisuje przemoc i zakopywanie ciał, lecz jako pojedyncze, niezweryfikowane świadectwo ma ograniczoną wartość dowodową. Czas, emocje i brak danych topograficznych wymagają ostrożności interpretacyjnej.
+                </p>
+
+                <h3>Kategoria D – Brak ekshumacji i śledztw</h3>
+                <p>
+                    Brak ekshumacji, śledztw IPN, nazwisk ofiar i sprawców.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>4. Wnioski Negatywne</h2>
+                <ol>
+                    <li>Nie istnieją źródła urzędowe (niemieckie, sądowe, IPN) potwierdzające pogrom w Wasilkowie.</li>
+                    <li>Wasilków nie występuje w katalogach miejsc masowych mordów ludności żydowskiej w 1941 r.</li>
+                    <li>Nie ma badań archeologicznych ani ekshumacji, które potwierdzałyby zbiorowy mord.</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>5. Wnioski Pozytywne i Interpretacja</h2>
+                <ol>
+                    <li>Źródła żydowskie (księga pamięci, relacja Mielnickiego) wskazują na istnienie <strong>wrogich działań części miejscowych Polaków wobec Żydów</strong> w momencie przejścia władzy z rąk sowieckich w niemieckie (czerwiec–lipiec 1941).</li>
+                    <li>Prawdopodobny charakter wydarzeń to tzw. <strong>„mikro-pogrom"</strong> – ograniczone w czasie i zasięgu akty przemocy (pobicia, rabunki, pojedyncze zabójstwa) typowe dla wielu miejscowości Podlasia w tym okresie.</li>
+                    <li>Wydarzenia w Wasilkowie należy interpretować w ramach szerokiego kontekstu społecznego: odwetu za okres okupacji sowieckiej, antysemickich nastrojów oraz niemieckiego przyzwolenia na lokalne akty przemocy.</li>
+                    <li><strong>Brak dokumentacji nie oznacza, że wydarzenie nie miało miejsca</strong>, lecz że nie zostało zarejestrowane przez okupacyjne lub powojenne instytucje.</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>6. Rekomendowana Metodologia Badawcza</h2>
+                <ul>
+                    <li><strong>Archiwum Państwowe w Białymstoku</strong> – akta gminy Wasilków (1939–1944)</li>
+                    <li><strong>Relacje Yad Vashem / USHMM</strong> – hasła: Wasilkow, Vasilkov, Wasilkowo</li>
+                    <li><strong>Porównanie z miejscowościami</strong> Supraśl, Zabłudów, Czarna Białostocka</li>
+                    <li><strong>Kwerenda</strong> w lokalnej prasie powojennej i kronikach parafialnych</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <div class="sources">
+                    <h2>7. Główne Źródła i Opracowania</h2>
+                    <ol>
+                        <li>JewishGen, „Wasilkow" – <a href="https://www.jewishgen.org/yizkor/wasilkow/wase007.html" target="_blank">https://www.jewishgen.org/yizkor/wasilkow/wase007.html</a></li>
+                        <li>Michel (Mendel) Mielnicki, John Munro, <em>Bialystok to Birkenau</em>, University of Calgary Press, 2000 – <a href="https://ronsdalepress.com/books/bialystok-to-birkenau/" target="_blank">https://ronsdalepress.com/books/bialystok-to-birkenau/</a></li>
+                        <li>IPN, „Pogromy ludności żydowskiej na Białostocczyźnie 1941 r." – <a href="https://ipn.gov.pl" target="_blank">https://ipn.gov.pl</a></li>
+                        <li>IPN Białystok, „Getto białostockie 1941–1943" – <a href="https://bialystok.ipn.gov.pl" target="_blank">https://bialystok.ipn.gov.pl</a></li>
+                        <li>Martin Dean, „The Local Population's Role in the Holocaust in the Bialystok District", w: <em>The Holocaust in the Soviet Union</em>, 1999.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>8. Konkluzja</h2>
+                <div class="highlight-box">
+                    <p>
+                        Dostępne źródła pozwalają przyjąć, że w Wasilkowie w 1939 r. i ponownie w czerwcu–lipcu 1941 r. wystąpiły <strong>akty przemocy i wrogości wobec ludności żydowskiej z udziałem części miejscowych Polaków</strong>, jednak brak jest dowodów na zorganizowany pogrom o charakterze masowego mordu.
+                    </p>
+                    <p>
+                        Wydarzenia te można interpretować jako <strong>prawdopodobny, lecz słabo udokumentowany epizod lokalnej przemocy</strong> wpisany w szerszą falę antyżydowskich wystąpień na Białostocczyźnie w lecie 1941 roku.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>Biblioteka Zapomnianej Historii Wasilkowa</strong></p>
+        <p style="margin-top: 10px; opacity: 0.8;">Analiza historyczna oparta na dostępnych źródłach</p>
+        <p style="margin-top: 5px; opacity: 0.6; font-size: 0.9em;">
+            Dokument służy celom edukacyjnym i badawczym
+        </p>
+    </div>
+</body>
+</html>
