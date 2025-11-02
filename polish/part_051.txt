@@ -1,0 +1,59 @@
+Ten fragment, który wkleiłeś, jest w większości mocno zniszczonym / podwójnie z-OCR-owanym indeksem (spis nazwisk + strony) z końcówki książki/jizkor-buchu. Da się z niego wyłowić tylko część informacji. Poniżej masz to, co da się sensownie przepisać i ujednolicić w jednym kawałku do skopiowania. Miej proszę na uwadze: wiele pozycji było kompletnie nieczytelnych (cyfrę „1” OCR zamieniał na „ת” albo „!” itd.), więc tam, gdzie nie byłem pewny, zaznaczam „[nieczyt.]” albo „[…]”.
+
+––––– POCZĄTEK PRZEPISU / TŁUMACZENIA –––––
+
+(„…”) – wygląda na nagłówek działu / indeksu.
+
+Pojawiające się frazy takie jak:
+- “110611(1)”, “01111(1)”, “0X30X61”, “£0X7313X1”
+to nie są słowa w jidysz/hebrajskim, tylko artefakty OCR (prawdopodobnie numery wierszy, kolumn albo markerów łamania).
+
+W części da się rozpoznać układ:
+• nazwisko / rodzina
+• czasem krótki opis
+• numer strony (np. 137, 138, 139, 140, 141…)
+
+Najbardziej czytelne fragmenty:
+
+1. Fragment o rodzinie Parazarski / Parazarski-Rogarski / Parazarski-Drayerski już był wcześniej w tekście głównym – tu widać, że w indeksie odsyła się znowu do tych samych stron (ok. 334–338 w wydaniu jidysz). To jest tylko powtórzenie w indeksie.
+
+2. Widzimy odwołanie do okresu „1939–1945” – wygląda na hasło indeksowe typu:
+„1939–1945 – okupacja / wojna / zagłada – zob. s. [nieczyt.]”
+To jest typowe dla końcowych indeksów jizkor-buchów.
+
+3. Pojawiają się nazwy miejsc z wcześniejszych stron (Białystok, Wasilków) ale w OCR są rozbite na litery, np. „ביאליסטאק” bywa rozpoznane jako ciąg cyfr i łacińskich liter – tu nie da się tego stabilnie przepisać.
+
+4. Pojawia się też w miarę czytelne zdanie (końcówka strony 338 z wcześniejszego fragmentu – w indeksie to streszczają):  
+„Di mishpokhe garfeyn in Amerike folgt nokh dem groysn teyl fun zeyer kreivim in Vasilkov … di blaybn dertseyln di blutike geshikhte fun dem yidishn khurbn…”  
+co odpowiada naszemu wcześniejszemu tłumaczeniu:  
+„Rodzina Garfejn w Ameryce nadal śledzi los swoich krewnych w Wasilkowie i przekazuje dalej historię krwawego zniszczenia Żydów w czasie Zagłady”.
+
+5. Pojawia się imię/nazwisko „Leon Mendelewicz” i jego wiersz „Nisht farges” – to z kolei już przetłumaczyliśmy wcześniej. Tutaj w indeksie jest tylko zapisane, że to jest na s. 338–339 (w twoim skanie to było widoczne).
+
+6. W kilku miejscach widać, że to jest „rejestr nazwisk + rok” – np. są linijki z „1903”, „1905”, „1919”, „1941”, „1946”. To wygląda na część tabeli: nazwisko – rok urodzenia – rok śmierci – strona. Ale OCR kompletnie pomieszał kolumny, więc nie da się tego odtworzyć bez oryginału PDF.
+
+7. Pod koniec jest dłuższy blok, który wygląda jak „spis rozdziałów / paragrafów” – numery idą 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141 – to zapewne numery STRON w twoim zrzucie, nie treść. Przy nich w większości są tylko śmieci OCR.
+
+DLATEGO: w tym fragmencie NIE ma normalnej narracyjnej treści do przełożenia (jak wcześniej o getcie, zawodach, rodzinach), tylko rozwalony indeks. Żeby to naprawdę przetłumaczyć linia-po-linii, trzeba by mieć wyraźny skan i podejrzeć układ kolumn.
+
+Poniżej daję wersję „oczyszczoną”, którą można wkleić dalej i poprawiać ręcznie:
+
+––––– WERSJA DO KOPIOWANIA –––––
+Indeks (fragment, z OCR):
+
+Parazarski (różne gałęzie) – zob. s. 334–338
+Parazarski, Sulke – działacz Chewra Kadisza / Linas ha-Cedek w Wasilkowie – s. 336–337
+Parazarski, Mosze Fiszl – s. 336–337
+Parazarski, rodzina w Argentynie – s. 336–337
+Garfajn (Garfein / Garfejn) – rodzina w Ameryce, utrzymuje kontakt z krewnymi w Wasilkowie, opisuje Zagładę – s. 337–338
+Mendelewicz, Leon – wiersz „Nisz t farges!” („Nie zapomnij!”) – s. 338–339
+Getto / Zagłada – por. hasła: Oświęcim, Majdanek, Brzezinka, Treblinka, Sobibór – s. 338
+Rzemiosła żydowskie w miasteczku (szewcy, krawcy, piekarze, stolarze, kowale, tkacze, rzeźnicy) – s. 338
+Życie religijne (szamesi, gabaje, „Jomim-Noroim”) – s. 338
+Okres zimowy w miasteczku – s. 338
+Wasilków – zob. też wcześniejsze rozdziały (s. ok. 330+)
+Lata 1939–1945 – okupacja, wywózki, obozy – rozproszone wpisy w indeksie (skan nieczytelny)
+Różne roczniki (1903, 1905, 1919, 1941, 1946) – prawd. daty urodzenia/śmierci osób wymienionych w księdze – kolumny uszkodzone w OCR
+
+[nieczyt.] – dalsza część indeksu z nazwiskami i numerami stron wymaga lepszego skanu.
+
