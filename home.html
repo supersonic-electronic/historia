@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biblioteka Zapomnianej Historii Wasilkowa - dokumentacja historii społeczności żydowskiej">
+    <title>Biblioteka Zapomnianej Historii Wasilkowa</title>
+    <script>
+        // Authentication check
+        if (!sessionStorage.getItem('wasilkow_auth')) {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .subtitle {
+            font-size: 1.3em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        header .description {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .card .author {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .card .meta {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        .card .meta-item {
+            margin: 8px 0;
+            color: #666;
+        }
+
+        .card .meta-label {
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-github {
+            background: linear-gradient(135deg, #24292e 0%, #0d1117 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-github:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #34e89e;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin: 5px 5px 5px 0;
+        }
+
+        .badge-ai {
+            background: #667eea;
+        }
+
+        .badge-github {
+            background: #24292e;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #666;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header .subtitle {
+                font-size: 1.1em;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid #667eea;">
+                <p style="font-style: italic; color: #495057; font-size: 1.1em; margin: 0; text-align: center; line-height: 1.8;">
+                    „Ci, którzy nie pamiętają przeszłości, skazani są na jej powtórzenie"
+                </p>
+                <p style="text-align: center; color: #6c757d; font-size: 0.9em; margin-top: 10px;">
+                    — George Santayana, <em>The Life of Reason</em> (1905)
+                </p>
+            </div>
+
+            <div style="position: relative;">
+                <button onclick="logout()" style="position: absolute; top: 0; right: 0; background: rgba(255, 255, 255, 0.2); color: white; border: 2px solid rgba(255, 255, 255, 0.3); padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s ease; font-size: 0.9em;">
+                    🚪 Wyloguj
+                </button>
+            </div>
+            <h1>📚 Biblioteka Zapomnianej Historii Wasilkowa</h1>
+            <div class="subtitle">
+                Kolekcja zawiera księgi pamięci i świadectwa dokumentujące
+                życie i historię społeczności żydowskiej Wasilkowa zniszczonej
+                podczas Holokaustu. Materiały są udostępniane w formie cyfrowej
+                w celu zachowania tych świadectw historycznych.
+            </div>
+        </header>
+
+        <!-- Introduction Section -->
+        <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); margin-bottom: 40px; border-left: 8px solid #e74c3c;">
+            <h2 style="color: #c0392b; margin-bottom: 20px; font-size: 2em; text-align: center;">
+                ⚠️ Wprowadzenie i Ostrzeżenie
+            </h2>
+
+            <div style="background: #fff5f5; padding: 25px; border-radius: 10px; border: 2px solid #e74c3c; margin-bottom: 25px;">
+                <p style="color: #2c3e50; line-height: 2; font-size: 1.1em; margin: 0;">
+                    <strong style="color: #c0392b;">Uwaga dla czytelników:</strong> Dokumenty zawarte w tej bibliotece
+                    przedstawiają historyczne świadectwa i relacje dotyczące społeczności żydowskiej Wasilkowa
+                    z przed i podczas II wojny światowej. Treści te mogą zawierać opisy przemocy, cierpienia
+                    i traumatycznych wydarzeń związanych z Holokaustem.
+                </p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 25px;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">
+                    📋 O treści dokumentów
+                </h3>
+                <p style="color: #555; line-height: 1.8; margin-bottom: 15px;">
+                    Księgi zawarte w tej bibliotece dokumentują historię społeczności żydowskiej Wasilkowa,
+                    w tym szczegółowe relacje dotyczące:
+                </p>
+                <ul style="color: #555; line-height: 2; margin-left: 20px;">
+                    <li>Życia codziennego społeczności żydowskiej przed wojną</li>
+                    <li>Wydarzeń podczas niemieckiej okupacji</li>
+                    <li>Relacji świadków Holokaustu i ocalałych</li>
+                    <li>Pogromów i aktów przemocy wobec ludności żydowskiej</li>
+                    <li>Zagłady społeczności w obozach śmierci</li>
+                </ul>
+            </div>
+
+            <div style="background: #fff9e6; padding: 25px; border-radius: 10px; border-left: 4px solid #f39c12;">
+                <h3 style="color: #e67e22; margin-bottom: 15px; font-size: 1.4em;">
+                    ⚖️ Ważna informacja o twierdzeniach historycznych
+                </h3>
+                <p style="color: #555; line-height: 1.8; margin-bottom: 15px;">
+                    Dokumenty te zawierają świadectwa ocalałych i relacje historyczne dotyczące pogromów
+                    i aktów przemocy wobec ludności żydowskiej w regionie Wasilkowa. Twierdzenia te stanowią
+                    część historycznych zapisów i świadectw, które są publikowane w celu zachowania pamięci
+                    i prawdy historycznej.
+                </p>
+                <p style="color: #555; line-height: 1.8; margin: 0;">
+                    <strong>Ważne:</strong> Opisy pogromów w Wasilkowie opierają się na świadectwach ocalałych z czterech niezależnych źródeł. Należy rozróżnić ofiary pogromu z czerwca 1941 r. (prawdopodobnie dziesiątki, a nie setki osób) od ogólnej liczby ofiar zagłady społeczności żydowskiej w całym okresie Holokaustu.
+                    Prezentowane relacje stanowią świadectwa i wspomnienia ocalałych, które mogą
+                    zawierać subiektywne interpretacje i doświadczenia. Czytelnicy powinni być świadomi,
+                    że treści te mogą zawierać opisy trudnych i bolesnych wydarzeń.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="analiza-historyczna-pogromow.html"
+                   style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                          color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1em;
+                          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;">
+                    📚 Czytaj analizę historyczną o pogromach w Wasilkowie i na Podlasiu
+                </a>
+            </div>
+
+            <p style="text-align: center; color: #7f8c8d; font-style: italic; margin-top: 25px; font-size: 0.95em;">
+                Publikacja tych materiałów służy celom edukacyjnym i upamiętniającym.<br>
+                יזכור - Pamiętaj, aby historia nie powtórzyła się nigdy więcej.
+            </p>
+        </div>
+
+        <!-- Podsumowanie o wartości żydowskich źródeł -->
+        <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); margin-bottom: 40px; border-left: 8px solid #4caf50;">
+            <h2 style="color: #2e7d32; margin-bottom: 25px; font-size: 1.8em; text-align: center;">
+                📚 Unikalna Wartość Żydowskich Źródeł
+            </h2>
+
+            <div style="background: #e8f5e9; padding: 30px; border-radius: 10px; border-left: 5px solid #4caf50;">
+                <p style="color: #2c3e50; line-height: 2; font-size: 1.05em; margin-bottom: 20px;">
+                    Dostępne źródła dotyczące życia w Wasilkowie sprzed i z okresu II wojny światowej są nieliczne i zróżnicowane pod względem treści oraz wiarygodności. Poza źródłami żydowskimi istnieją jedynie ogólne opisy historyczne – głównie w publikacjach samorządowych, encyklopedycznych (np. Wikipedia) oraz lokalnych projektach pamięci. Koncentrują się one jednak na faktach administracyjnych, demograficznych i gospodarczych, a nie na codziennym życiu mieszkańców ani relacjach między społecznościami.
+                </p>
+                <p style="color: #2c3e50; line-height: 2; font-size: 1.05em; margin-bottom: 20px;">
+                    Najbogatsze w szczegóły, barwne i osobiste świadectwa pochodzą z żydowskich ksiąg pamięci (Yizkor Books) oraz wspomnień, takich jak relacja Michela (Mendla) Mielnickiego „Bialystok to Birkenau" (2000). Źródła te oferują unikalny wgląd w życie miasteczka: handel, rzemiosło, religię, więzi sąsiedzkie oraz dramatyczne wydarzenia lat 1939–1941. W obliczu niedostatku relacji urzędowych stanowią one najbardziej plastyczny i kulturowo „gęsty" obraz społecznego życia Wasilkowa w pierwszej połowie XX wieku.
+                </p>
+                <p style="color: #2c3e50; line-height: 2; font-size: 1.05em; margin-bottom: 20px;">
+                    Nie oznacza to jednak, że są one w pełni obiektywne. Księgi pamięci i wspomnienia powstały po wojnie – pisane przez ocalałych i ich potomków w celu upamiętnienia zniszczonej społeczności – co wpływa na ton narracji, dobór wątków i pominięcia. Relacje te skupiają się na życiu żydowskiej gminy, z ograniczonym odniesieniem do reszty społeczeństwa. Mimo to ich znaczenie jest kluczowe, gdyż brak jest porównywalnie szczegółowych opisów autorstwa mieszkańców nieżydowskich.
+                </p>
+                <p style="color: #2c3e50; line-height: 2; font-size: 1.05em; margin: 0;">
+                    Podsumowując, żydowskie świadectwa pozostają ważnym źródłem wiedzy o codzienności przedwojennego Wasilkowa. Bez nich historia miasta sprzed Zagłady byłaby znacznie uboższa i pozbawiona ludzkiego wymiaru – to właśnie te relacje wypełniają luki pozostawione przez oficjalne dokumenty, które milczą o społecznym i emocjonalnym doświadczeniu życia w miasteczku w latach 1939–1941.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="analiza-zrodel-zydowskich.html"
+                   style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+                          color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1em;
+                          box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4); transition: all 0.3s ease;">
+                    📖 Czytaj pełną analizę źródeł żydowskich
+                </a>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Book Card -->
+            <div class="card">
+                <span class="card-icon">📖</span>
+                <h2>Z Białegostoku do Brzezinki</h2>
+                <div class="author">Michel Mielnicki and John Munro</div>
+
+                <div class="meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Oryginalny tytuł:</span>
+                        Bialystok to Birkenau: the Holocaust journey of Michel Mielnicki
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Wydawca:</span>
+                        Vancouver, BC: Ronsdale Press and the Vancouver Holocaust Education Centre, 2000
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">ISBN:</span>
+                        0-921870-77-9
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Język oryginału:</span>
+                        Angielski
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Liczba stron:</span>
+                        247 str. (oryginał)
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Tłumaczenie:</span>
+                        Angielski → Polski (automatyczne AI)
+                    </div>
+                </div>
+
+                <p>
+                    Pamiętnik holokaustu opisujący życie Michela Mielnickiego w Wasilkowie, gdzie się
+                    urodził i wychował, oraz jego podróż z Białegostoku do Birkenau. Książka dokumentuje
+                    codzienne życie w Wasilkowie w okresie przedwojennym i wojennym, stanowiąc poruszającą
+                    opowieść o przetrwaniu, stracie i ludzkiej wytrzymałości podczas jednego z
+                    najciemniejszych okresów w historii ludzkości.
+                </p>
+
+                <p style="background: #e8f4f8; padding: 12px; border-radius: 5px; border-left: 3px solid #17a2b8; margin: 15px 0; font-size: 0.9em; color: #0c5460;">
+                    <strong>ℹ️ Uwaga:</strong> Tłumaczenie zawiera jedynie tekst. Wszystkie elementy graficzne (fotografie,
+                    ilustracje, mapy) zostały usunięte z tej wersji cyfrowej.
+                </p>
+
+                <p style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0; font-size: 0.95em;">
+                    <strong>Uwaga:</strong> Pomimo dużej wartości historycznej tej książki i podejmowanych wysiłków,
+                    oficjalne tłumaczenie polskie nie jest dostępne. Niniejsze tłumaczenie zostało
+                    stworzone automatycznie przy użyciu technologii AI w celu udostępnienia tych
+                    ważnych świadectw polskojęzycznym czytelnikom.
+                    <br><br>
+                    <a href="https://www.amazon.com/Bialystok-Birkenau-Holocaust-Journey-Mielnicki-ebook/dp/B00JDWYZIE" target="_blank"
+                       style="display: inline-block; padding: 8px 16px; background: #FF9900; color: white; text-decoration: none;
+                              border-radius: 5px; font-size: 0.9em; font-weight: bold; transition: all 0.3s ease;">
+                        📚 Kup oficjalną wersję angielską na Amazon
+                    </a>
+                </p>
+
+                <div style="margin-bottom: 15px;">
+                    <span class="badge badge-ai">🤖 Tłumaczenie AI</span>
+                    <span class="badge">📄 247 stron</span>
+                    <span class="badge">🇵🇱 Polski</span>
+                </div>
+
+                <a href="bialystok-birkenau.html" class="btn">
+                    📖 Czytaj tłumaczenie polskie
+                </a>
+            </div>
+
+            <!-- Wasilków Yizkor Book Card -->
+            <div class="card">
+                <span class="card-icon">📜</span>
+                <h2>Księga Pamięci Wasilków Jizker</h2>
+                <div class="author">Red. Leon Mendelewicz</div>
+
+                <div class="meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Oryginalny tytuł:</span>
+                        Pinḳes Ṿashilḳoṿer yizker bukh
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Rok wydania:</span>
+                        1974
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Oryginał (jidysz):</span>
+                        <a href="https://digitalcollections.nypl.org/items/c796c490-0c99-0133-f442-58d385a7bbd0" target="_blank">
+                            NYPL Digital Collections
+                        </a>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Język oryginału:</span>
+                        Jidysz
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Liczba stron:</span>
+                        508 str. (oryginał)
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Tłumaczenie:</span>
+                        Jidysz → Polski (automatyczne AI)
+                    </div>
+                </div>
+
+                <p>
+                    Księgi Jizker (יזכור - "pamiętaj") to księgi pamięci dokumentujące życie i historię
+                    społeczności żydowskich zniszczonych podczas Holokaustu. Tworzone przez ocalałych
+                    i potomków, stanowią one jedyne zachowane świadectwa wielu nieistniejących już
+                    miasteczek i społeczności.
+                </p>
+
+                <p style="margin-top: 15px;">
+                    Księga Pamięci Wasilków jest jedną z setek takich ksiąg zebranych w
+                    <a href="https://www.yadvashem.org/yizkor/index.html" target="_blank" style="color: #667eea; font-weight: bold;">Yad Vashem</a>
+                    - Instytucie Pamięci Męczenników i Bohaterów Holokaustu w Jerozolimie.
+                    Dokumentuje ona historię żydowskiej społeczności Wasilkowa, zawierając wspomnienia,
+                    relacje świadków, fotografie oraz dokumentację życia codziennego przed i podczas
+                    II wojny światowej w tym zniszczonym miasteczku.
+                </p>
+
+                <p style="background: #e8f4f8; padding: 12px; border-radius: 5px; border-left: 3px solid #17a2b8; margin: 15px 0; font-size: 0.9em; color: #0c5460;">
+                    <strong>ℹ️ Uwaga:</strong> Tłumaczenie zawiera jedynie tekst. Wszystkie elementy graficzne (fotografie,
+                    ilustracje, mapy) zostały usunięte z tej wersji cyfrowej.
+                </p>
+
+                <p style="background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107; margin: 20px 0; font-size: 0.95em;">
+                    <strong>Uwaga:</strong> Pomimo dużej wartości historycznej tej księgi,
+                    oficjalne tłumaczenie polskie nie jest dostępne. Niniejsze tłumaczenie zostało
+                    stworzone automatycznie z oryginalnego języka jidysz na polski przy użyciu technologii AI
+                    w celu udostępnienia tych ważnych świadectw polskojęzycznym czytelnikom.
+                    <br><br>
+                    <a href="https://jewishgen.org/yizkor/Wasilkow/Wasilkow.html" target="_blank"
+                       style="display: inline-block; padding: 8px 16px; background: #667eea; color: white; text-decoration: none;
+                              border-radius: 5px; font-size: 0.9em; font-weight: bold; transition: all 0.3s ease; margin-right: 10px;">
+                        🌐 Częściowe tłumaczenie angielskie
+                    </a>
+                </p>
+
+                <div style="margin-bottom: 15px;">
+                    <span class="badge badge-ai">🤖 Tłumaczenie AI</span>
+                    <span class="badge">📄 508 stron</span>
+                    <span class="badge">🇵🇱 Polski</span>
+                </div>
+
+                <a href="wasilkow-yizkor.html" class="btn">
+                    📖 Czytaj Księgę Pamięci
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <div style="background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 10px; padding: 25px; margin-bottom: 30px; text-align: left;">
+                <h3 style="margin-top: 0; margin-bottom: 15px; color: #495057; font-size: 1.1em;">⚠️ Zastrzeżenie o tłumaczeniach AI</h3>
+                <p style="margin: 0; line-height: 1.8; color: #6c757d; font-size: 0.95em;">
+                    Tłumaczenia maszynowe dostępne na tej stronie mogą zawierać błędy lub niewielkie pominięcia
+                    ze względu na automatyczny charakter technologii AI. Autor strony, pomimo starań o zachowanie
+                    autentyczności i dokładności, nie ponosi odpowiedzialności za jakiekolwiek błędy, nieścisłości
+                    lub pominięcia w tłumaczeniu. W przypadku potrzeby weryfikacji szczegółów, zaleca się
+                    zapoznanie z oryginalnym źródłem.
+                </p>
+            </div>
+
+            <!-- Legal Disclaimers - Polish -->
+            <div style="background: #fff; border: 2px solid #dee2e6; border-radius: 10px; padding: 30px; margin-bottom: 30px; text-align: left;">
+                <h3 style="margin-top: 0; margin-bottom: 20px; color: #2c3e50; font-size: 1.3em;">🇵🇱 Zastrzeżenie Prawne</h3>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    <strong>Zastrzeżenie:</strong><br>
+                    Materiały, tłumaczenia i analizy zamieszczone na tej stronie internetowej są publikowane wyłącznie w celach badawczych, dokumentacyjnych i edukacyjnych.
+                </p>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    Autorzy i redaktorzy nie formułują i nie zamierzają formułować żadnych zarzutów wobec osób żyjących ani ich potomków. Wszelkie odniesienia do osób, grup lub wydarzeń historycznych opierają się na źródłach archiwalnych, naukowych i świadectwach ocalałych, odzwierciedlających stan wiedzy w momencie opracowania tekstu.
+                </p>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    Redakcja dołożyła starań, aby materiały zostały przedstawione rzetelnie i w odpowiednim kontekście. Niemniej jednak publikacje mogą zawierać opisy przemocy, zbrodni wojennych lub aktów antysemickich, odzwierciedlające tragiczną historię regionu.
+                </p>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    Publikacja tych treści nie stanowi wyrażenia jakichkolwiek ocen prawnych lub moralnych poza ramami badań historycznych. Wszelkie uwagi, sprostowania lub prośby o uzupełnienie prosimy kierować do zespołu redakcyjnego.
+                </p>
+
+                <p style="margin: 0; line-height: 1.8; color: #6c757d; font-size: 0.9em; font-style: italic;">
+                    © 2025 Wasilkow-Yizkor.org. Powielanie lub cytowanie dozwolone dla celów niekomercyjnych i edukacyjnych z podaniem źródła.
+                </p>
+            </div>
+
+            <!-- Legal Disclaimers - English -->
+            <div style="background: #fff; border: 2px solid #dee2e6; border-radius: 10px; padding: 30px; margin-bottom: 30px; text-align: left;">
+                <h3 style="margin-top: 0; margin-bottom: 20px; color: #2c3e50; font-size: 1.3em;">🇬🇧 Legal Disclaimer</h3>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    <strong>Disclaimer:</strong><br>
+                    The materials, translations, and analyses published on this website are presented for historical research, documentation, and educational purposes only.
+                </p>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    The authors and editors do not make, and do not intend to make, any accusations against living persons or their descendants. All references to historical individuals, groups, or events are based on archival, scholarly, and survivor sources that reflect the information available at the time of writing.
+                </p>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    The editors have taken care to present sources accurately and in context. Nevertheless, the materials may include descriptions of violence, wartime crimes, or antisemitic acts that reflect the tragic history of the region.
+                </p>
+
+                <p style="margin-bottom: 15px; line-height: 1.8; color: #495057; font-size: 0.95em;">
+                    The publication of these documents does not imply any legal or moral judgment beyond historical reporting. Any errors or requests for clarification may be submitted to the editorial team for review.
+                </p>
+
+                <p style="margin: 0; line-height: 1.8; color: #6c757d; font-size: 0.9em; font-style: italic;">
+                    © 2025 Wasilkow-Yizkor.org. Reproduction or citation is permitted for non-commercial, educational use with proper attribution.
+                </p>
+            </div>
+
+            <p>
+                <strong>Biblioteka Zapomnianej Historii Wasilkowa</strong><br>
+                Archiwum dokumentacji historycznej
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
+                Utworzono: Listopad 1, 2025 |
+                Tłumaczenia AI: <a href="https://translate.google.com" target="_blank">Google Translate API</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function logout() {
+            if (confirm('Czy na pewno chcesz się wylogować?')) {
+                sessionStorage.removeItem('wasilkow_auth');
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
