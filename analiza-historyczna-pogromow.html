@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Analiza historyczna pogromów w Wasilkowie i na Podlasiu 1941">
     <title>Analiza Historyczna Pogromów w Wasilkowie i na Podlasiu</title>
+    <script>
+        // Authentication check
+        if (!sessionStorage.getItem('wasilkow_auth')) {
+            window.location.href = 'login.html';
+        }
+    </script>
     <style>
         * {
             margin: 0;

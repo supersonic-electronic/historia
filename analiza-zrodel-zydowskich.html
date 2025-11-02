@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Analiza wartości żydowskich źródeł w dokumentacji historii Wasilkowa">
     <title>Unikalna Wartość Żydowskich Źródeł - Wasilków</title>
+    <script>
+        // Authentication check
+        if (!sessionStorage.getItem('wasilkow_auth')) {
+            window.location.href = 'login.html';
+        }
+    </script>
     <style>
         * {
             margin: 0;

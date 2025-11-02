@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bialystok to Birkenau - Tłumaczenie AI na Polski</title>
+    <script>
+        // Authentication check
+        if (!sessionStorage.getItem('wasilkow_auth')) {
+            window.location.href = 'login.html';
+        }
+    </script>
     <style>
         * {
             margin: 0;
